@@ -1,18 +1,18 @@
-const mongoose = require('../db/connections')
+const mongoose = require('../db/connection')
 
 const Schema = mongoose.Schema
 
-const User = new Schema({
+const Category = new Schema({
 
-username: String,
+    title: String,
 
-password: String,
+    stashItem: [
 
-ideas: [
-
-    { type: Schema.Types.ObjectId,
-ref: 'Idea' }
-]
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'StashItem'
+        }
+    ]
 })
 
-module.exports = mongoose.model('User', User)
+module.exports = mongoose.model('Category', Category)
