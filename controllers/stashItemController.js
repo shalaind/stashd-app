@@ -19,6 +19,12 @@ const stashItemController = {
                         oneCat.save()
                     })
             })
+    },
+    delete: (req, res) => {
+        StashItem.findByIdAndDelete(req.params.stashItemId)
+            .then(() => {
+                res.sendStatus(200)
+            })
     }
    
 }

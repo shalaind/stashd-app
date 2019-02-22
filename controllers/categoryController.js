@@ -19,6 +19,12 @@ const categoryController = {
                         oneUser.save()
                     })
             })
+    },
+    delete: (req, res) => {
+        Category.findByIdAndDelete(req.params.categoryId)
+            .then(() => {
+                res.sendStatus(200)
+            })
     }
    
 }
