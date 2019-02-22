@@ -6,7 +6,7 @@ const Category = new Schema({
 
     title: String,
 
-    stashItem: [
+    stashItems: [
 
         {
             type: Schema.Types.ObjectId,
