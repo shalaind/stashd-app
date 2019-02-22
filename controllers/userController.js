@@ -1,6 +1,6 @@
 const User = require('../models/User')
 
-const reviewController = {
+const userController = {
     index: (req, res) => {
         User.find({}).populate('categories')
             .then((allUsers) => {
@@ -10,4 +10,4 @@ const reviewController = {
    
 }
 
-module.exports = reviewController
+module.exports = userController
