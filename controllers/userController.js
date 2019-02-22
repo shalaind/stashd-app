@@ -2,12 +2,22 @@ const User = require('../models/User')
 const Category = require('../models/Category')
 
 const userController = {
+
     index: (req, res) => {
         User.find({}).populate('categories')
             .then((allUsers) => {
                 res.send(allUsers)
             })
     },
+
+    show: (req, res) => {
+        let userId = req.params.userId
+        User.findById(userId).populate('categories')
+            .then((allUsers) => {
+                res.send(allUsers)
+            })
+    },
+  
     create: (req, res) => {
         User.create(req.body)
             .then((newUser) => {

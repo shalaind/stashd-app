@@ -1,40 +1,70 @@
 const User = require('../models/User')
+const Category = require('../models/Category')
+const StashItem = require('../models/StashItem')
+const mongoose = require('./connection')
 
-const Idea = require('../models/Idea')
 
-const mongoose = require('./connections')
-
-const mars = new Idea({
-
-title: 'Fly to Mars',
-
-description: "Earth isn't Red enough. Let's move to a new planet"
+const stash1 = new StashItem({
+    title: 'You',
+    link: 'https://www.netflix.com/title/80211991'
 })
 
-const tesla = new Idea({
-
-title: 'Build a Car',
-
-description: "Gas is too expensive. I'm gonna build a car that doesn't need gas"
+const stash2 = new StashItem({
+    title: 'Safe',
+    link: 'https://www.netflix.com/title/80201500'
 })
 
-const elon = new User({
+const stash3 = new StashItem({
+    title: 'Universal Laws',
+    link: 'https://www.youtube.com/watch?v=zEr-90Cpj_Q'
+})
 
-username: 'elon_musk',
+const stash4 = new StashItem({
+    title: 'Decalcify your third eye',
+    link: 'https://www.youtube.com/watch?v=GTkXCO1G6no'
+})
 
-password: 'spaceiscool',
+const category1 = new Category({
 
-ideas: [mars, tesla]
+    title: 'Netflix & Chill',
+
+    stashItems: [stash1, stash2]
+
+})
+
+const category2 = new Category({
+
+    title: 'Stay Woke Vids',
+
+    stashItems: [stash3, stash4]
+
+})
+
+const laindoe = new User({
+
+    username: 'laindoe',
+
+    email: 'laindoe@gmail.com',
+
+    password: 'stashed',
+
+    profilePic: 'https://i.imgur.com/3hrdK1Z.jpg',
+
+    categories: [category1, category2]
 })
 
 User.remove({})
 
-.then(() => Idea.remove({}))
+    .then(() => Category.remove({}))
 
-.then(() => Idea.insertMany([mars, tesla]))
+    .then(() => StashItem.remove({}))
 
-.then(() => elon.save())
+    .then(() => StashItem.insertMany([stash1, stash2, stash4, stash3]))
 
-.then(() => console.log('Successful Save'))
+    .then(() => Category.insertMany([category1, category2]))
 
-.then(() => mongoose.connection.close())
+    .then(() => laindoe.save())
+
+    .then(() => console.log('Successful Save'))
+
+    .then(() => mongoose.connection.close())
