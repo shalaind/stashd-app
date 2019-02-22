@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const Category = require('../models/Category')
 
 const userController = {
     index: (req, res) => {
@@ -7,7 +8,12 @@ const userController = {
                 res.send(allUsers)
             })
     },
-   
+    create: (req, res) => {
+        User.create(req.body)
+            .then((newUser) => {
+                res.send(newUser)
+            })
+    },
 }
 
 module.exports = userController

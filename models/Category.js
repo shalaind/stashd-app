@@ -7,7 +7,6 @@ const Category = new Schema({
     title: String,
 
     stashItems: [
-
         {
             type: Schema.Types.ObjectId,
             ref: 'StashItem'
