@@ -12,7 +12,7 @@ const User = new Schema({
 
     profilePic: String,
 
-    category: [{
+    categories: [{
         type: Schema.Types.ObjectId,
         ref: 'Category'
     }]
