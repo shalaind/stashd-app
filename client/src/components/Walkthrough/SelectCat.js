@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'; 
 
 class SelectCat extends Component {
     render() {
@@ -8,7 +9,8 @@ class SelectCat extends Component {
                 <h1>Books </h1>
                 <h1>Podcasts</h1>
                 <h1>Audiobooks</h1>
-                <h1>or create one</h1>
+                <Link to="/add-category"><button>Create One</button> </Link>
+
             </div>
         );
     }

@@ -13,7 +13,7 @@ const categoryController = {
     },
 
     show: (req, res) => {
-        const catId = req.params.categoryId
+        const catId = req.params.id
         Category.findById(catId).populate('stashItems')
             .then((cat)=> {
                 res.send(cat)
@@ -35,7 +35,7 @@ const categoryController = {
             })
     },
     delete: (req, res) => {
-        Category.findByIdAndDelete(req.params.categoryId)
+        Category.findByIdAndDelete(req.params.id)
             .then(() => {
                 res.sendStatus(200)
             })
