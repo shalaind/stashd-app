@@ -1,16 +1,34 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'; 
+import axios from 'axios';
 
 class SelectCat extends Component {
+    state = {
+        user: [{}]
+    };
+    componentDidMount = () => {
+        this.getUsers();
+}
+
+getUsers = () => {
+    axios.get(`/api/user`).then(res =>
+        this.setState({ user: res.data })
+        // this.setState({ user: res.data })
+    )}
+
     render() {
         return (
             <div>
-                <h1>Select a Category</h1>
-                <h1>Books </h1>
-                <h1>Podcasts</h1>
-                <h1>Audiobooks</h1>
-                <Link to="/add-category"><button>Create One</button> </Link>
+                <h1>Select Your Categories</h1>
 
+                <button>Books + </button>
+
+                <button>Podcasts + </button>
+                <button>Videos + </button>
+
+               <button>Audiobooks + </button> <br />
+
+                <Link to= `/view-categories/${this.props.match.params.userId}` ><button>Continue</button> </Link>
             </div>
         );
     }

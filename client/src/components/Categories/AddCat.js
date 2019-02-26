@@ -4,10 +4,17 @@ import { Link } from "react-router-dom";
 
 class AddCat extends Component {
     state = {
-            categories: {
-                title:''
+            user: {
+                username: "",
+                password: "",
+                categories:{
+                    title: "",
+                    stashItems: [{}]
+                }
+                
             }
-        }; 
+            };
+    
 
     componentDidMount = () => {
             this.getUsers();
@@ -20,15 +27,15 @@ class AddCat extends Component {
         )}
     
       handleChange = event => {
-        const newState = { ...this.state.categories };
+        const newState = { ...this.state.user.categories};
         newState[event.target.name] = event.target.value;
-        this.setState({ category: newState });
+        this.setState({ user: newState });
       };
     
       handleSubmit = event => {
         event.preventDefault();
         const newCat = this.state.user;
-        const userId = this.props.match.params.userId;
+        const userId = this.props.match.params.id;
         axios.post(`/api/user/${userId}/category`, newCat).then(res => {
           console.log(res.data);
         });
@@ -39,15 +46,16 @@ class AddCat extends Component {
             <div>
                 <h1>Add a new category</h1>
                 <form onSubmit={this.handleSubmit}>
-
                 <input 
-                type="text" 
-                placeholder="title"
-                name="title"
-            value={this.state.categories.title}
-            onChange={this.handleChange} 
-            />
-            <button>Submit</button>
+                    type="text" 
+                    placeholder="title"
+                    name="title"
+                    value={this.state.user.categories}
+                    onChange={this.handleChange} 
+                />
+                <button>
+                    Submit
+                </button>
                 </form>
                 
             </div>
