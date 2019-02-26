@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; 
+import { Link, Redirect } from "react-router-dom"; 
 
 class Signup extends Component {
   state = {
@@ -9,7 +9,8 @@ class Signup extends Component {
       email: "",
       password: "",
       profilePic: ""
-    }
+    },
+    redirect: false
   };
 
   handleChange = event => {
@@ -25,6 +26,18 @@ class Signup extends Component {
       console.log(res.data);
     });
   };
+
+  setRedirect = () => {
+    this.setState({
+      redirect:true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect){
+      return <Redirect to="/welcome" />
+    }
+  }
 
   render() {
     return (
@@ -59,7 +72,7 @@ class Signup extends Component {
             value={this.state.user.profilePic}
             onChange={this.handleChange}
           /><br/>
-          <button type="submit">Submit</button>
+          <button onClick={this.setRedirect} type="submit">Submit</button>
         </form>
 
         <Link to="/welcome">welcome</Link>

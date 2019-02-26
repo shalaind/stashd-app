@@ -19,6 +19,7 @@ getUsers = () => {
     render() {
         return (
             <div>
+            
                 <h1>Select Your Categories</h1>
 
                 <button>Books + </button>
@@ -28,7 +29,7 @@ getUsers = () => {
 
                <button>Audiobooks + </button> <br />
 
-                <Link to= `/view-categories/${this.props.match.params.userId}` ><button>Continue</button> </Link>
+                <Link to= {"/view-categories/" + this.props.match.params.userId} ><button>Continue</button> </Link>
             </div>
         );
     }
