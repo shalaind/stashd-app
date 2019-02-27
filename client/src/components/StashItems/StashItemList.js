@@ -6,6 +6,7 @@ class StashItemList extends Component {
 
     state = {
         categories: {
+            _id: '', 
             title: '',
             stashItems: [{}]
         }
@@ -27,7 +28,7 @@ class StashItemList extends Component {
     return (
       <div>
        <h1>{this.state.categories.title}</h1>
-       <Link to="/add-stash-item"><button> Add to the Stash </button></Link>
+       <Link to={"/add-stash-item/" + this.state.categories._id }><button> Add to the Stash </button></Link>
 
         {this.state.categories.stashItems.map((stash, i) => (
             <div key={i}>

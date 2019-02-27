@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom"; 
+import { Redirect } from "react-router-dom"; 
 
 class AddCat extends Component {
     state = {
@@ -23,7 +23,6 @@ class AddCat extends Component {
         const newCat = this.state.user;
         const userId = this.props.match.params.userId;
         axios.post(`/api/user/${userId}/category`, newCat).then(res => {
-          console.log(res.data);
           this.setState({redirect:true})
 
         });
