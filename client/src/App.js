@@ -29,7 +29,7 @@ class App extends Component {
                   <Route exact path="/view-categories/:userId" component={ViewCats} />
                   <Route exact path="/add-stash-item/:catId" component={AddStashItem} />
                   <Route exact path="/stash-items/:catId" component={StashItemList} />
-                  <Route exact path="/profile" component={Profile} />
+                  <Route exact path="/user-profile/:userId" component={Profile} />
                 </Switch>
               </div>
       </Router>

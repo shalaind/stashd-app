@@ -7,6 +7,7 @@ import UserHeader from "../User/UserHeader";
 class ViewCats extends Component {
     state = {
         user: {
+            _id: '',
             username: '',
             password: '',
             email: '',
@@ -33,10 +34,19 @@ getUsers = () => {
         // this.setState({ user: res.data })
     )}
 
+    deleteUser = () => {
+        const catId = this.props.match.params.categoryId
+        axios.delete(`/api/category/${catId}`).then(() => {
+            console.log('it deleted')
+
+        });
+      };
+
+
   render() {
     return (
       <div>
-    <UserHeader getUsers = {this.state.getUsers} />
+    <UserHeader userPic = {this.state.user.profilePic} username = {this.state.user.username} userId = {this.state.user._id} />
 
     <Link to={"/add-category/" + this.props.match.params.userId}><h1>Add Stash</h1> </Link> 
 

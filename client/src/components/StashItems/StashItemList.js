@@ -18,11 +18,28 @@ class StashItemList extends Component {
 
   getStash = () => {
     let catId = this.props.match.params.catId;
-    axios.get(`/api/category/${catId}/stash-items`).then(
-      res => 
+    axios.get(`/api/category/${catId}/stash-items`).then(res => 
       this.setState({ categories: res.data })
     );
   };
+
+  deleteCat = () => {
+    const catId = this.props.match.params.catId
+    axios.delete(`/api/category/${catId}`).then(() => {
+        console.log('page needs to be refreshed')
+
+    });
+  };
+
+  deleteStashItem = stashItemId => {
+    axios.delete(`/api/stash-items/${stashItemId}`).then(() => {
+      // this.setState({
+      //   categories: this.state.categories.filter(item => item._id !== stashItemId)
+      // });
+      console.log('page needs to be refreshed')
+    });
+  };
+
 
   render() {
     return (
@@ -34,8 +51,13 @@ class StashItemList extends Component {
             <div key={i}>
                 <h1>{stash.title}</h1>
                 <h1>{stash.link}</h1>
+                <button 
+                onClick={() => this.deleteStashItem(stash._id)}
+               >X</button>
             </div>
         ))}
+
+        <button onClick={this.deleteCat}>Delete Stash</button>
       </div>
     )
   }

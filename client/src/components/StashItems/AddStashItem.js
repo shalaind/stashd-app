@@ -20,12 +20,11 @@ class AddStashItem extends Component {
         const stashUpload = this.state.stashItems;
         const catId = this.props.match.params.catId; 
         axios.post(`/api/category/${catId}/stash-items`, stashUpload).then(res => {
-console.log('posted a stash item')
+            console.log('posted a stash item')
         });
       };
 
     render() {
-  
         return (
             <div>
                 <h1>Add a new item</h1>
@@ -44,7 +43,8 @@ console.log('posted a stash item')
                     value={this.state.stashItems.link}
                     onChange={this.handleChange}
                     />
-                    <button>Add</button>
+                    <button
+                    >Add</button>
                 </form>
                 
             </div>
