@@ -25,7 +25,7 @@ class App extends Component {
                   <Route exact path="/sign-up" component={Signup} />
                   <Route exact path="/welcome" component={Welcome} />
                   <Route exact path="/select-categories/:userId" component={SelectCat} />
-                  <Route exact path="/add-category" component={NewCat} />
+                  <Route exact path="/add-category/:userId" component={NewCat} />
                   <Route exact path="/view-categories/:userId" component={ViewCats} />
                   <Route exact path="/add-stash-item" component={AddStashItem} />
                   <Route exact path="/stash-items/:catId" component={StashItemList} />

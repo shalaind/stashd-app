@@ -23,21 +23,12 @@ class Signup extends Component {
     event.preventDefault();
     const userUpload = this.state.user;
     axios.post("/api/user", userUpload).then(res => {
+    window.location = "/welcome"
+
       console.log(res.data);
     });
   };
 
-  setRedirect = () => {
-    this.setState({
-      redirect:true
-    })
-  }
-
-  renderRedirect = () => {
-    if (this.state.redirect){
-      return <Redirect to="/welcome" />
-    }
-  }
 
   render() {
     return (
@@ -72,10 +63,8 @@ class Signup extends Component {
             value={this.state.user.profilePic}
             onChange={this.handleChange}
           /><br/>
-          <button onClick={this.setRedirect} type="submit">Submit</button>
+          <button type="submit">Submit</button>
         </form>
-
-        <Link to="/welcome">welcome</Link>
       </div>
     );
   }

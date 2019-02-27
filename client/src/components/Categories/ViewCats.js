@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios'; 
 import {Link} from 'react-router-dom'; 
+import UserHeader from "../User/UserHeader";
+
 
 class ViewCats extends Component {
     state = {
@@ -34,6 +36,9 @@ getUsers = () => {
   render() {
     return (
       <div>
+    <UserHeader getUsers = {this.state.getUsers} />
+
+    <Link to={"/add-category/" + this.props.match.params.userId}><h1>Add Stash</h1> </Link> 
 
         {this.state.user.categories.map((cat, i) => (
             <div key={i}>
@@ -43,9 +48,6 @@ getUsers = () => {
             </div>
            ))}
 
-        {/* <h1> List of all categories from user </h1> <h1> Books </h1>
-        <h1> Podcasts </h1> 
-        <h1> Audiobooks </h1> */}
       </div>
     );
   }
