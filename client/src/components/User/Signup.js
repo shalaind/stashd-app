@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom"; 
+import { Link, Redirect } from "react-router-dom";
 
 class Signup extends Component {
   state = {
@@ -23,47 +23,81 @@ class Signup extends Component {
     event.preventDefault();
     const userUpload = this.state.user;
     axios.post("/api/user", userUpload).then(res => {
-    window.location = "/welcome"
+      window.location = "/welcome";
 
       console.log(res.data);
     });
   };
-
 
   render() {
     return (
       <div>
         <h1>Sign up</h1>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Username"
-            name="username"
-            value={this.state.user.username}
+          <div class="control has-icons-left">
+            <input
+              class="input is-medium"
+              type="text"
+              name="username"
+              value={this.state.user.username}
+              onChange={this.handleChange}
+              placeholder="Username"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-user" />
+            </span>
+          </div>
+
+          <br />
+
+          <div class="control has-icons-left">
+            <input
+              class="input is-medium"
+              type="email"
+              name="email"
+              value={this.state.user.email}
+              onChange={this.handleChange}
+              placeholder="Email"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-envelope" />
+            </span>
+          </div>
+
+          <br />
+
+          <div class="control has-icons-left">
+            <input
+              class="input is-medium"
+              type="password"
+              name="password"
+              value={this.state.user.password}
+              onChange={this.handleChange}
+              placeholder="Password"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-lock" />
+            </span>
+          </div>
+
+          <br />
+
+          <div class="control has-icons-left">
+            <input
+              class="input is-medium"
+              type="text"
+              name="profilePic"
+              value={this.state.user.profilePic}
             onChange={this.handleChange}
-          /><br/>
-          <input
-            type="text"
-            placeholder="Email"
-            name="email"
-            value={this.state.user.email}
-            onChange={this.handleChange}
-          /><br/>
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={this.state.user.password}
-            onChange={this.handleChange}
-          /><br/>
-          <input
-            type="text"
-            placeholder="Profile Pic"
-            name="profilePic"
-            value={this.state.user.profilePic}
-            onChange={this.handleChange}
-          /><br/>
-          <button type="submit">Submit</button>
+              placeholder="Profile Pic"
+            />
+            <span class="icon is-left">
+              <i class="fas fa-camera" />
+            </span>
+          </div>
+
+          <br />
+          <button class="button is-large is-fullwidth" type="submit">Submit</button>
         </form>
       </div>
     );
