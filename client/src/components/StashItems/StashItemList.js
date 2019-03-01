@@ -15,8 +15,9 @@ class StashItemList extends Component {
     }
 
   componentDidMount = () => {
-    this.getStash();
+    this.getStash()
   };
+
 
   getStash = () => {
     let catId = this.props.match.params.catId;
@@ -66,14 +67,15 @@ class StashItemList extends Component {
           ) : null}
 
           </h1>
-
-
-       {/* <Link to={"/add-stash-item/" + this.state.categories._id }><button> Add to the Stash </button></Link> */}
-
+<div class="stashOuter"> 
         {this.state.categories.stashItems.map((stash, i) => (
-            <div key={i}>
+            <div class="stashSpace" key={i}>
 
-            <a href= {stash.link} target="_blank" >  <h1>{stash.title}</h1> </a>
+            <a href= {stash.link} target="_blank" >  
+            
+            <img class="linkImage" src = "https://i.imgur.com/HR6ovsp.jpg" alt=" book" />
+             </a>
+             <h1>{stash.title}</h1>
     
                 <button 
                 class="button is-info"
@@ -83,8 +85,9 @@ class StashItemList extends Component {
                </button>
             </div>
         ))}
+        </div>
 
-        <button class="button is-info" onClick={this.deleteCat}>Delete Stash</button>
+        <button style={{margin: "2rem"}}class="button is-info" onClick={this.deleteCat}>Delete Stash</button>
       </div>
     )
   }

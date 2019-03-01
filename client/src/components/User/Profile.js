@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'; 
 import axios from "axios";
 import swal from "sweetalert";
 import EditUser from "./EditUser";
@@ -65,22 +66,32 @@ class Profile extends Component {
     axios.patch(`/api/user/${userId}`).then(() => console.log("user updated"));
   };
 
+  
+
   render() {
     return (
       <div>
-      <h1> Back </h1> 
-      <div class="profileCon3">
-        <img
+    
+        <div style={{padding: "20px"}}>
 
-          src={this.state.user.profilePic}
-          alt="profile"
-        />
-      </div> 
+        <Link to={`/view-categories/${this.state.user._id}`}> Back </Link> 
+        </div>
+
+      <div class="container" style={{width: "260px"}}> 
+        <div class="profileCon3">
+          <img
+
+            src={this.state.user.profilePic}
+            alt="profile"
+          />
+        </div> 
+      </div>
 
       <div style={{padding: "20px", textAlign: "center"}}>
         <strong>Username:</strong> {this.state.user.username} <br /> 
         <strong>Email:</strong> {this.state.user.email} <br /> 
       </div>
+        <div  style={{textAlign: "center"}}>
 
         <button className="button is-text" onClick={this.toggleEditUserForm}> 
         Edit
@@ -96,6 +107,7 @@ class Profile extends Component {
 
 
         <button class="button is-info" onClick={this.deleteUser}>Delete</button>
+        </div> 
 
       </div>
     );

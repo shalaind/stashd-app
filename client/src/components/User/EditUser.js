@@ -29,13 +29,13 @@ class EditUser extends Component {
 
     render() {
         return (
-            <div style={{width: "200px" }}>
+            <div class="container" style={{width: "200px", marginTop: "20px" }}>
                 <form onSubmit={this.editUser}>
                     <div>
                         <input 
                         class="input"
                         type="text"
-                        placeholder="username"
+                        placeholder="Username"
                         name="username"
                         value={this.state.user.username}
                         onChange={this.handleChange}
@@ -45,7 +45,7 @@ class EditUser extends Component {
                         <input 
                         class="input"
                         type="text"
-                        placeholder="email"
+                        placeholder="Email"
                         value={this.state.user.email}
                         onChange={this.handleChange}
                         name="email"/>

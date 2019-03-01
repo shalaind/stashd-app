@@ -56,8 +56,8 @@ class ViewCats extends Component {
         <h1 class="welcomeHeader"> Stashes 
         
         <button style={{marginTop: "20px", marginLeft: "20px"}} className="button is-info" onClick={this.toggleAddCatForm}>
-        <i class="fas fa-plus"></i>
-          </button>
+          <i class="fas fa-plus"></i>
+        </button>
           {this.state.catFormVisible ? (
             <AddCat 
               userId = {this.props.match.params.userId}
@@ -67,14 +67,16 @@ class ViewCats extends Component {
           ) : null}
           </h1> 
           
-              <div class="stashOuter">
+        <div class="stashOuter">
         {this.state.user.categories.map((cat, i) => (
           <div class="stashColumns" key={i}>
+
               <Link to={"/stash-items/" + cat._id}>
             <div class="catBox">
                 <h1 class="catTitle">{cat.title} </h1>
             </div>
               </Link>
+              
               </div> 
         ))}
         </div> 

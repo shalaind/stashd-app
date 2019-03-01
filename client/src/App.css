@@ -51,8 +51,9 @@
   transform: translate(-20%, 0);
 }
 
-
-
+.linkImage{
+  height: 300px;
+}
 
 
 .userHead{
@@ -138,4 +139,8 @@
   flex-wrap: wrap; 
   align-items: center; 
   justify-content: center; 
+}
+
+.stashSpace{
+  padding: 50px; 
 }
