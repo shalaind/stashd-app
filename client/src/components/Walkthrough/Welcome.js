@@ -19,10 +19,11 @@ class Welcome extends Component {
   };
   render() {
     return (
-      <div>
+      <div style={{textAlign: "center"}}>
         <h1 class="welcomeHeader">Get ready to Stash!</h1>
         <p class="welcomePara">
-          Stash'd is a safe haven for the things you want to save and come back to enjoy later. Store a list of the books you'd like to read, new podcast recommendations, or even a list of movies to watch! 
+          Stash'd is a safe haven for the things you want to save and come back to enjoy later. <br /> 
+          Store a list of the books you'd like to read, new podcast recommendations, or even a list of movies to watch! 
         </p>
         <h1 class="getStartedHeader">Click your profile below to get started</h1>
 
@@ -32,7 +33,7 @@ class Welcome extends Component {
           <div key={i}>
             <div>
             <div class="profileCon">
-            <Link to={`/select-categories/${user._id}`}>
+            <Link to={`/view-categories/${user._id}`}>
               <img
                 src={user.profilePic}
                 alt="user profile"

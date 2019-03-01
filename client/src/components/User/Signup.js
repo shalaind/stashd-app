@@ -103,7 +103,7 @@ class Signup extends Component {
 
 
           <br />
-          <button style={{ backgroundColor: "#72CC72", color:"white" }} class="button is-large is-fullwidth" type="submit">Submit</button>
+          <button style={{ backgroundColor: "#72CC72", color:"white" }} class="button is-large is-fullwidth" type="submit">Sign Up</button>
         </form>
       </div>
     );

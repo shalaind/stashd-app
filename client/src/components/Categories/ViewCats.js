@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import UserHeader from "../User/UserHeader";
+import AddCat from "./AddCat";
+
 
 class ViewCats extends Component {
   state = {
@@ -16,7 +18,13 @@ class ViewCats extends Component {
           title: ""
         }
       ]
-    }
+    },
+    catFormVisible: false,
+
+  };
+
+  toggleAddCatForm = () => {
+    this.setState({ catFormVisible: !this.state.catFormVisible });
   };
 
   componentDidMount = () => {
@@ -45,21 +53,34 @@ class ViewCats extends Component {
           username={this.state.user.username}
           userId={this.state.user._id}
         />
-
-        <Link to={"/add-category/" + this.props.match.params.userId}>
-          <h1>Add Stash</h1>{" "}
-        </Link>
-
+        <h1 class="welcomeHeader"> Stashes  
+        
+        <button style={{marginTop: "20px"}}className="button is-info" onClick={this.toggleAddCatForm}>
+        <i class="fas fa-plus"></i>
+          </button>
+          {this.state.catFormVisible ? (
+            <AddCat 
+              userId = {this.props.match.params.userId}
+              getUsers = {this.getUsers}
+              toggleAddCatForm = {this.toggleAddCatForm}
+            /> 
+          ) : null}
+          </h1> 
+          
+              <div class="stashOuter">
         {this.state.user.categories.map((cat, i) => (
-          <div key={i}>
-            <div>
+          <div class="stashColumns" key={i}>
               <Link to={"/stash-items/" + cat._id}>
-                <h1>{cat.title} </h1>{" "}
-              </Link>
+            <div class="catBox">
+                <h1 class="catTitle">{cat.title} </h1>
             </div>
-          </div>
+              </Link>
+              </div> 
         ))}
-      </div>
+        </div> 
+
+       
+        </div> 
     );
   }
 }

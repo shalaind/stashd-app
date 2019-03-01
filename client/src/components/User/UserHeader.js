@@ -8,14 +8,17 @@ class UserHeader extends Component {
     render() {
         return (
             <div>
-                <h1>Stash'd Logo</h1>
-                <h1> {this.props.username} </h1>
-                <Link to={"/user-profile/" + this.props.userId}>
-
-                <img class="profilePic" 
-                src= {this.props.userPic} 
-                alt="profile" />
-                </Link>
+                
+                    <div class="userHead">
+                        <div class="profileCon2">
+                            <Link to={"/user-profile/" + this.props.userId} >
+                                <img class="profilePic" 
+                                    src= {this.props.userPic} 
+                                    alt="profile" />
+                            </Link>
+                        </div> 
+                           <h1 style={{marginTop: "40px"}}> <strong>{this.props.username}</strong> </h1> 
+                    </div> 
 
             </div>
         );

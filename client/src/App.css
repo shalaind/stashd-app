@@ -5,6 +5,8 @@
 .userProfiles{
   display: flex; 
   flex-wrap: wrap; 
+  align-items: center; 
+  justify-content: center; 
 }
 
 .profileCon{
@@ -13,12 +15,52 @@
   border-radius: 50px;
   overflow: hidden;
   margin: 2rem; 
-
 }
 
 .profileCon img{
-  max-width: 100%; 
+  min-width: 160%;
+  transform: translate(-20%, 0);
 
+}
+
+.profileCon2{
+  width: 50px;
+  height: 50px; 
+  border-radius: 50px;
+  overflow: hidden;
+  margin: 2rem; 
+
+}
+
+.profileCon2 img{
+  min-width: 160%;
+  transform: translate(-20%, 0);
+}
+
+.profileCon3{
+  width: 200px;
+  height: 200px; 
+  border-radius: 200px;
+  overflow: hidden;
+  margin: 2rem; 
+
+}
+
+.profileCon3 img{
+  min-width: 160%;
+  transform: translate(-20%, 0);
+}
+
+
+
+
+
+.userHead{
+  display: flex; 
+  float: right; 
+  padding-right: 30px; 
+  /* margin-top: 30px; 
+  margin-right: 30px;  */
 }
 
 
@@ -40,7 +82,7 @@
   font-weight: 700; 
   font-size: 4rem; 
   line-height: 4rem; 
-  padding: 2rem 2rem 1rem 2rem ; 
+  padding: 4rem 2rem 1rem 2rem ; 
   color: #72CC72; 
 
 }
@@ -54,8 +96,46 @@
   padding-left: 2rem; 
   padding-right: 2rem; 
   font-family: 'Roboto Slab', serif;
-  font-weight: 700; 
+  font-weight: 700;
   font-size: 1.5rem; 
   color: #72CC72; 
 
+}
+
+.catBox{ 
+  background-color: #72CC72; 
+  background-image: linear-gradient( 135deg, #28C76F 10%, #72CC72 100%);
+  margin: 2rem; 
+  width: 200px ; 
+  height: 200px; 
+}
+
+.catBox:hover{
+  background-image: linear-gradient(to right, #596164 100%, #868f96 10% );
+}
+
+
+.catTitle{ 
+  color: white; 
+  font-size: 1.5rem; 
+  font-weight: 600;
+  padding: 1.5rem; 
+  text-align: center; 
+  padding-top: 35%;
+}
+
+.headerColumns{
+  display: flex; 
+}
+
+.headerColumn{
+  flex: 50%; 
+}
+
+.stashOuter{
+  column-count: 3;
+  display: flex; 
+  flex-wrap: wrap; 
+  align-items: center; 
+  justify-content: center; 
 }

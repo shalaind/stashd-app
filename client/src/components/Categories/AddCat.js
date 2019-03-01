@@ -21,29 +21,31 @@ class AddCat extends Component {
       handleSubmit = event => {
         event.preventDefault();
         const newCat = this.state.user;
-        const userId = this.props.match.params.userId;
-        axios.post(`/api/user/${userId}/category`, newCat).then(res => {
-          this.setState({redirect:true})
+
+        axios.post(`/api/user/${this.props.userId}/category`, newCat).then(res => {
+          console.log("posted stash")
+          this.props.getUsers()
+          this.props.toggleAddCatForm();
 
         });
       };
 
     render() {
-        if(this.state.redirect){
-            return <Redirect to={'/view-categories/' + this.props.match.params.userId}/>
-        }
+      
         return (
             <div>
-                <h1>Add a new category</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} style={{width: "200px", paddingTop: "20px"}}>
                 <input 
                     type="text" 
-                    placeholder="title"
+                    class="input"
+                    placeholder="Title"
                     name="title"
                     value={this.state.categories.title}
                     onChange={this.handleChange} 
                 />
-                <button>
+                <button
+                class="button is-info">
+
                     Submit
                 </button>
                 </form>

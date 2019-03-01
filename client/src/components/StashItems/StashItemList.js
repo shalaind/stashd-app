@@ -44,6 +44,7 @@ class StashItemList extends Component {
   render() {
     return (
       <div>
+      <h1> Back </h1> 
        <h1>{this.state.categories.title}</h1>
        <Link to={"/add-stash-item/" + this.state.categories._id }><button> Add to the Stash </button></Link>
 

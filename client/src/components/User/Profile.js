@@ -16,7 +16,13 @@ class Profile extends Component {
           title: ""
         }
       ]
-    }
+    },
+    editUserFormVisible: false,
+
+  };
+
+  toggleEditUserForm = () => {
+    this.setState({ editUserFormVisible: !this.state.editUserFormVisible });
   };
 
   componentDidMount = () => {
@@ -62,21 +68,35 @@ class Profile extends Component {
   render() {
     return (
       <div>
+      <h1> Back </h1> 
+      <div class="profileCon3">
         <img
-          class="profilePic"
+
           src={this.state.user.profilePic}
           alt="profile"
         />
-        <h1>username: {this.state.user.username}</h1>
-        <h1>email: {this.state.user.email}</h1>
+      </div> 
 
-        <h1>Edit</h1>
-        <EditUser
-                    getUsers = {this.getUsers}
-                    userId={this.props.match.params.userId}
-                /> 
+      <div style={{padding: "20px", textAlign: "center"}}>
+        <strong>Username:</strong> {this.state.user.username} <br /> 
+        <strong>Email:</strong> {this.state.user.email} <br /> 
+      </div>
 
-        <button onClick={this.deleteUser}>Delete</button>
+        <button className="button is-text" onClick={this.toggleEditUserForm}> 
+        Edit
+          </button> 
+
+          {this.state.editUserFormVisible ? (
+            <EditUser
+              userId = {this.props.match.params.userId}
+              getUsers = {this.getUsers}
+              toggleEditUserForm = {this.toggleEditUserForm}
+            /> 
+          ) : null}
+
+
+        <button class="button is-info" onClick={this.deleteUser}>Delete</button>
+
       </div>
     );
   }
