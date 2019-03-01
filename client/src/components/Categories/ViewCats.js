@@ -53,9 +53,9 @@ class ViewCats extends Component {
           username={this.state.user.username}
           userId={this.state.user._id}
         />
-        <h1 class="welcomeHeader"> Stashes  
+        <h1 class="welcomeHeader"> Stashes 
         
-        <button style={{marginTop: "20px"}}className="button is-info" onClick={this.toggleAddCatForm}>
+        <button style={{marginTop: "20px", marginLeft: "20px"}} className="button is-info" onClick={this.toggleAddCatForm}>
         <i class="fas fa-plus"></i>
           </button>
           {this.state.catFormVisible ? (

@@ -17,6 +17,8 @@ class AddCat extends Component {
         newState[event.target.name] = event.target.value;
         this.setState({ user: newState });
       };
+
+      
     
       handleSubmit = event => {
         event.preventDefault();

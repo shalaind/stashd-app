@@ -5,51 +5,63 @@ class AddStashItem extends Component {
   state = {
     stashItems: [{}],
     redirect: false,
-    linkPreview: {}
+    linkPreview: [{
+      image: '',
+      url: '', 
+      title: '',
+      description: ''
+    }]
   };
 
   handleChange = event => {
     const newState = { ...this.state.stashItems };
     newState[event.target.name] = event.target.value;
     this.setState({ stashItems: newState });
+    console.log(this.state.stashItems)
   };
 
   handleSubmit = event => {
     event.preventDefault();
     const stashUpload = this.state.stashItems;
-    const catId = this.props.match.params.catId;
-    axios.post(`/api/category/${catId}/stash-items`, stashUpload).then(res => {
-      console.log("posted a stash item");
+    axios.post(`/api/category/${this.props.catId}/stash-items`, stashUpload).then(res => {
+      this.linkPreview()
+      console.log("posted a stash item with link preview")
+      this.props.getStash() 
+      this.props.toggleAddStashItem()
+      console.log(this.state.linkPreview)
+
     });
   };
-
+  
   linkPreview = () => {
     axios.get(`http://api.linkpreview.net/?key=5c7061cb8b2d714407ebebef881f1a536ffa36a9b8f6b&q=${this.state.stashItems.link}`).then(res => {
-      this.setState({linkPreview: res.data})
-      console.log(res.data)
+      const savePreview = res.data 
+      this.setState({linkPreview: savePreview})
+      console.log(this.state.linkPreview)
     })
   }
 
   render() {
     return (
       <div>
-        <h1>Add a new item</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} style={{width: "200px", paddingTop: "20px"}}>
           <input
+            class="input"
             type="text"
-            placeholder="title"
+            placeholder="Title"
             name="title"
             value={this.state.stashItems.title}
             onChange={this.handleChange}
           />
           <input
+            class="input"
             type="text"
-            placeholder="link"
+            placeholder="Link"
             name="link"
             value={this.state.stashItems.link}
             onChange={this.handleChange}
           />
-          <button onClick={this.linkPreview}>Add</button>
+          <button class="button is-info">Add Item</button>
         </form>
       </div>
     );
