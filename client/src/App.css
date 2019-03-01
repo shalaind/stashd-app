@@ -2,7 +2,60 @@
   text-align: center;
 }
 
-.profilePic{
-  width:20%;
-  border-radius: 25px;
+.userProfiles{
+  display: flex; 
+  flex-wrap: wrap; 
+}
+
+.profileCon{
+  width: 100px;
+  height: 100px; 
+  border-radius: 50px;
+  overflow: hidden;
+  margin: 2rem; 
+
+}
+
+.profileCon img{
+  max-width: 100%; 
+
+}
+
+
+.signUpForm{ 
+  max-width: "400px";
+  padding: "100px";
+  border: solid; 
+}
+
+.pageHeader{
+  text-align: center; 
+  font-size: 2rem; 
+  font-weight: 600;
+  padding: 50px; 
+}
+
+.welcomeHeader{
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700; 
+  font-size: 4rem; 
+  line-height: 4rem; 
+  padding: 2rem 2rem 1rem 2rem ; 
+  color: #72CC72; 
+
+}
+
+.welcomePara{
+  padding: 0 2rem 1rem 2rem ; 
+
+}
+
+.getStartedHeader{
+  padding-left: 2rem; 
+  padding-right: 2rem; 
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700; 
+  font-size: 1.5rem; 
+  color: #72CC72; 
+
 }

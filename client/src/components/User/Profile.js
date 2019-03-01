@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import swal from "sweetalert";
+import EditUser from "./EditUser";
 
 class Profile extends Component {
   state = {
@@ -66,9 +67,14 @@ class Profile extends Component {
           src={this.state.user.profilePic}
           alt="profile"
         />
-        <h1>{this.state.user.username}</h1>
-        <h1>{this.state.user.email}</h1>
+        <h1>username: {this.state.user.username}</h1>
+        <h1>email: {this.state.user.email}</h1>
+
         <h1>Edit</h1>
+        <EditUser
+                    getUsers = {this.getUsers}
+                    userId={this.props.match.params.userId}
+                /> 
 
         <button onClick={this.deleteUser}>Delete</button>
       </div>

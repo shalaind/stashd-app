@@ -8,6 +8,14 @@ const StashItem = new Schema({
 
     link: String,
 
+    linkPreview: {
+        description: String, 
+        image: String,
+        title: String,
+        url: String
+
+    }
+
 })
 
 module.exports = mongoose.model('StashItem', StashItem)

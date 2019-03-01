@@ -32,8 +32,13 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h1>Sign up</h1>
-        <form onSubmit={this.handleSubmit}>
+        <div class="container" style={{width: "250px", marginTop: "20px", marginBottom: "40px"}}>
+
+        <img src="https://i.imgur.com/Q6b8T2M.png" alt="logo" width="250px"/> 
+        </div>
+
+        <form class="container" style={{width: "70%"}} onSubmit={this.handleSubmit}>
+
           <div class="control has-icons-left">
             <input
               class="input is-medium"
@@ -96,8 +101,9 @@ class Signup extends Component {
             </span>
           </div>
 
+
           <br />
-          <button class="button is-large is-fullwidth" type="submit">Submit</button>
+          <button style={{ backgroundColor: "#72CC72", color:"white" }} class="button is-large is-fullwidth" type="submit">Submit</button>
         </form>
       </div>
     );

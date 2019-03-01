@@ -6,11 +6,11 @@ class Intro extends Component {
     return (
       <div>
         <section
-          style={{ backgroundColor: "#72CC72" }}
+          style={{ backgroundColor: "#72CC72"}}
           class="hero is-success is-fullheight"
         >
           <div class="hero-body container">
-            <div class="container">
+            <div class="container center" style={{ textAlign: "center"}}>
               <img
                 src="https://i.imgur.com/wwvf3x0.png"
                 alt="logo"

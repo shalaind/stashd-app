@@ -4,7 +4,8 @@ import axios from "axios";
 class AddStashItem extends Component {
   state = {
     stashItems: [{}],
-    redirect: false
+    redirect: false,
+    linkPreview: {}
   };
 
   handleChange = event => {
@@ -21,6 +22,13 @@ class AddStashItem extends Component {
       console.log("posted a stash item");
     });
   };
+
+  linkPreview = () => {
+    axios.get(`http://api.linkpreview.net/?key=5c7061cb8b2d714407ebebef881f1a536ffa36a9b8f6b&q=${this.state.stashItems.link}`).then(res => {
+      this.setState({linkPreview: res.data})
+      console.log(res.data)
+    })
+  }
 
   render() {
     return (
@@ -41,7 +49,7 @@ class AddStashItem extends Component {
             value={this.state.stashItems.link}
             onChange={this.handleChange}
           />
-          <button>Add</button>
+          <button onClick={this.linkPreview}>Add</button>
         </form>
       </div>
     );
