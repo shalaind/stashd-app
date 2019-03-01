@@ -9,7 +9,9 @@ class StashItemList extends Component {
         categories: {
             _id: '', 
             title: '',
-            stashItems: [{}]
+            stashItems: [{
+              linkPreview: {}
+            }]
         },
         addStashItemVisible: false
     }
@@ -68,12 +70,12 @@ class StashItemList extends Component {
 
           </h1>
 <div class="stashOuter"> 
+
         {this.state.categories.stashItems.map((stash, i) => (
             <div class="stashSpace" key={i}>
-
             <a href= {stash.link} target="_blank" >  
-            
-            <img class="linkImage" src = "https://i.imgur.com/HR6ovsp.jpg" alt=" book" />
+            <img class="linkImage" src = {stash.linkPreview.image} alt=" book" /> 
+
              </a>
              <h1>{stash.title}</h1>
     

@@ -6,22 +6,39 @@ const mongoose = require('./connection')
 
 const stash1 = new StashItem({
     title: 'You',
-    link: 'https://www.netflix.com/title/80211991'
+    link: 'https://www.netflix.com/title/80211991',
+    linkPreview: {
+        image: ''
+
+    }
+
 })
 
 const stash2 = new StashItem({
     title: 'Safe',
-    link: 'https://www.netflix.com/title/80201500'
+    link: 'https://www.netflix.com/title/80201500',
+    linkPreview: {
+        image: ''
+
+    }
+
 })
 
 const stash3 = new StashItem({
     title: 'Universal Laws',
-    link: 'https://www.youtube.com/watch?v=zEr-90Cpj_Q'
+    link: 'https://www.youtube.com/watch?v=zEr-90Cpj_Q',
+    linkPreview: {
+        image: ''
+
+    }
 })
 
 const stash4 = new StashItem({
     title: 'Decalcify your third eye',
-    link: 'https://www.youtube.com/watch?v=GTkXCO1G6no'
+    link: 'https://www.youtube.com/watch?v=GTkXCO1G6no',
+    linkPreview: {
+        image: ''
+    }
 })
 
 const category1 = new Category({

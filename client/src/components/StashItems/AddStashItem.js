@@ -5,12 +5,7 @@ class AddStashItem extends Component {
   state = {
     stashItems: [{}],
     redirect: false,
-    linkPreview: [{
-      image: '',
-      url: '', 
-      title: '',
-      description: ''
-    }]
+    
   };
 
   handleChange = event => {
@@ -22,15 +17,23 @@ class AddStashItem extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const stashUpload = this.state.stashItems;
-    axios.post(`/api/category/${this.props.catId}/stash-items`, stashUpload).then(res => {
-      this.linkPreview()
-      console.log("posted a stash item with link preview")
-      this.props.getStash() 
-      this.props.toggleAddStashItem()
-      console.log(this.state.linkPreview)
+    let stashUpload = this.state.stashItems;
+    //Get the PReview and save it to the stashItems
+    let previewURL  = `http://api.linkpreview.net/?key=5c7061cb8b2d714407ebebef881f1a536ffa36a9b8f6b&q=${stashUpload.link}`
+    axios.get(previewURL).then(res => {
+        stashUpload.linkPreview = res.data 
+        //Post to the Database
+        axios.post(`/api/category/${this.props.catId}/stash-items`, stashUpload).then(res => {
+          this.linkPreview()
+          console.log("posted a stash item with link preview")
+          this.props.getStash() 
+          this.props.toggleAddStashItem()
+          console.log(this.state.linkPreview)
+    
+        });
 
-    });
+    })
+
   };
   
   linkPreview = () => {
