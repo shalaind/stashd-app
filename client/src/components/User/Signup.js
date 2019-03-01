@@ -23,14 +23,18 @@ class Signup extends Component {
     event.preventDefault();
     const userUpload = this.state.user;
     axios.post("/api/user", userUpload).then(res => {
-      
-      window.location = "http:localhost:3000/welcome";
+      this.setState({redirect:true})
+
+      // window.location = "http:localhost:3000/welcome";
 
       console.log(res.data);
     });
   };
 
   render() {
+    if(this.state.redirect){
+      return <Redirect to='/welcome'/>
+  }
     return (
       <div>
         <div class="container" style={{width: "250px", marginTop: "20px", marginBottom: "40px"}}>
