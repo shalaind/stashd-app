@@ -23,7 +23,8 @@ class Signup extends Component {
     event.preventDefault();
     const userUpload = this.state.user;
     axios.post("/api/user", userUpload).then(res => {
-      window.location = "/welcome";
+      
+      window.location = "http:localhost:3000/welcome";
 
       console.log(res.data);
     });
