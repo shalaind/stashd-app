@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'; 
+import { Link, Redirect } from 'react-router-dom'; 
 import axios from "axios";
 import swal from "sweetalert";
 import EditUser from "./EditUser";
@@ -19,6 +19,8 @@ class Profile extends Component {
       ]
     },
     editUserFormVisible: false,
+    redirect: false
+
 
   };
 
@@ -53,7 +55,7 @@ class Profile extends Component {
           });
 
           setTimeout(function() {
-            window.location = "/welcome";
+            this.setState({redirect:true})
           }, 2000);
         } else {
           swal("Your account is safe...Stash Away!");
@@ -69,6 +71,9 @@ class Profile extends Component {
   
 
   render() {
+    if(this.state.redirect){
+      return <Redirect to='/welcome'/>
+  }
     return (
       <div>
     
