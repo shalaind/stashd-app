@@ -4,9 +4,9 @@
 https://stashd.herokuapp.com/welcome
 
 ## Purpose  
-problem- constantly getting recommendations for books, movies, tv shows, music etc and forget to view it. once im ready to see it , I cant remember where I wrote it down or cant find the link
+Have you ever had someone recommend an interesting book to read, or a thrilling netflix video you should watch, and when you wanted to actually induldge you couldn't find the link or forgot the name? This is where the Stash'd app comes in to play! 
 
-Create a space for users to choose categories and add links and screenshots for recommendations
+Stash'd is a web application that serves as a central location to store all of things you'd like to come back to later to enjoy! This could be a list of vegan recipes you found on facebook, or even tips on landing your next job! The possibilities are endless, use Stash'd to organize your future.
 
 ## User Stories
 
